@@ -1,20 +1,20 @@
 Microchip Technology Inc, v1.26 (A)
 
 Tool Name:
-  c:\program files (x86)\microchip\xc16\v1.26\bin\bin\..\bin/elf-ld.exe
+  /opt/microchip/xc16/v1.26/bin/bin/../bin/elf-ld
 
 Command:
   -p24EP256GP202 \
   -o \
-  dist/default/debug/heyy.X.debug.elf \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/.. \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/PIC24E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/PIC24F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/PIC24H/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC30F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33F/gld \
+  dist/default/debug/pic_audio_sequencer.debug.elf \
+  -L/opt/microchip/xc16/v1.26/bin/bin/.. \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../lib \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/PIC24E/gld \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/PIC24F/gld \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/PIC24H/gld \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC30F/gld \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33E/gld \
+  -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33F/gld \
   build/default/debug/Lab01.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
@@ -33,7 +33,7 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/debug/heyy.X.debug.map \
+  -Map=dist/default/debug/pic_audio_sequencer.debug.map \
   --report-mem \
   --memorysummary \
   dist/default/debug/memoryfile.xml \
@@ -47,10 +47,10 @@ Command:
 Optional library libp24EP256GP202.a not found
 Archive member included because of file (symbol)
 
-c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
+/opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
                               (__resetPRI)
-c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extendedep.o)
-                              c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o) (__data_init_extended)
+/opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extendedep.o)
+                              /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o) (__data_init_extended)
 
 
 Selected CodeGuard Options:
@@ -75,11 +75,11 @@ Program Memory  [Origin = 0x200, Length = 0x2adec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xe4           0x156  (342)
-.text                        0x2e4               0x12e           0x1c5  (453)
-.dinit                       0x412                 0x8             0xc  (12)
-.shared.dinit                0x41a                 0x2             0x3  (3)
+.text                        0x2e4               0x140           0x1e0  (480)
+.dinit                       0x424                 0x8             0xc  (12)
+.shared.dinit                0x42c                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x32a  (810) <1%
+                 Total program memory used (bytes):          0x345  (837) <1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -135,7 +135,7 @@ External Symbols in Program Memory (by address):
                   0x000346                  _mux2C
                   0x000350                  _mux2D
                   0x00035a                  _main
-                  0x0003e8                  _delay
+                  0x0003fa                  _delay
                   0x02affa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -146,7 +146,7 @@ External Symbols in Program Memory (by name):
                   0x000238                  __data_init_extended
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003e8                  _delay
+                  0x0003fa                  _delay
                   0x00035a                  _main
                   0x00030a                  _mux1A
                   0x000314                  _mux1B
@@ -187,7 +187,7 @@ LOAD build/default/debug/Lab01.o
                     0x0001                  __DEBUG = 0x1
                     0x0001                  __MPLAB_DEBUGGER_SIMULATOR = 0x1
 LOAD p24EP256GP202
-LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
+LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/libfx-elf.a
                     0x2aff0                  __FICD = 0x2aff0
                     0x2aff2                  __FPOR = 0x2aff2
                     0x2aff4                  __FWDT = 0x2aff4
@@ -212,13 +212,13 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
 
 .text             0x000200         0xe4
  *(.init)
- .init            0x000200         0x38 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
-                  0x000200                  __resetPRI
+ .init            0x000200         0x38 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
                   0x000200                  __reset
+                  0x000200                  __resetPRI
                   0x00022c                  __psv_init
- .init            0x000238         0xa8 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extendedep.o)
-                  0x000238                  __data_init
+ .init            0x000238         0xa8 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extendedep.o)
                   0x000238                  __data_init_extended
+                  0x000238                  __data_init
  *(.user_init)
  *(.handle)
  *(.isr*)
@@ -267,26 +267,26 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x47d
+.debug_info       0x000000        0x5e4
  *(.debug_info)
- .debug_info      0x000000        0x47d build/default/debug/Lab01.o
+ .debug_info      0x000000        0x5e4 build/default/debug/Lab01.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x134
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x134 build/default/debug/Lab01.o
 
-.debug_line       0x000000         0xf6
+.debug_line       0x000000         0xea
  *(.debug_line)
- .debug_line      0x000000         0xf6 build/default/debug/Lab01.o
+ .debug_line      0x000000         0xea build/default/debug/Lab01.o
 
 .debug_frame      0x000000        0x164
  *(.debug_frame)
  .debug_frame     0x000000        0x164 build/default/debug/Lab01.o
 
-.debug_str        0x000000         0x16
+.debug_str        0x000000         0x20
  *(.debug_str)
- .debug_str       0x000000         0x16 build/default/debug/Lab01.o
+ .debug_str       0x000000         0x20 build/default/debug/Lab01.o
 
 .debug_loc
  *(.debug_loc)
@@ -1156,29 +1156,29 @@ __FUID3
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
 START GROUP
-LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-c-elf.a
+LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a
+LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/libm-elf.a
+LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/debug/heyy.X.debug.elf elf32-pic30)
+OUTPUT(dist/default/debug/pic_audio_sequencer.debug.elf elf32-pic30)
 LOAD FGS
 LOAD default_isr
 LOAD data_init
 LOAD shared_data_init
 
 .debug_pubtypes
-                  0x000018         0x2f
+                  0x000018         0x4e
  .debug_pubtypes
-                  0x000018         0x2f build/default/debug/Lab01.o
+                  0x000018         0x4e build/default/debug/Lab01.o
 
 __c30_signature
-                  0x000047         0x12
+                  0x000066         0x12
  __c30_signature
-                  0x000047          0x6 build/default/debug/Lab01.o
+                  0x000066          0x6 build/default/debug/Lab01.o
  __c30_signature
-                  0x00004d          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
+                  0x00006c          0x6 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x000053          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extendedep.o)
+                  0x000072          0x6 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extendedep.o)
 
 .nbss               0x1000          0x4
  .nbss              0x1000          0x4 build/default/debug/Lab01.o
@@ -1203,8 +1203,8 @@ __c30_signature
  .config_JTAGEN
                   0x02aff0          0x2 build/default/debug/Lab01.o
 
-.text             0x0002e4        0x12e
- .text            0x0002e4        0x12e build/default/debug/Lab01.o
+.text             0x0002e4        0x140
+ .text            0x0002e4        0x140 build/default/debug/Lab01.o
                   0x0002e4                  _selectPOT0
                   0x0002f6                  _selectPOT1
                   0x00030a                  _mux1A
@@ -1216,10 +1216,10 @@ __c30_signature
                   0x000346                  _mux2C
                   0x000350                  _mux2D
                   0x00035a                  _main
-                  0x0003e8                  _delay
+                  0x0003fa                  _delay
 
-.dinit            0x000412          0x8
- .dinit           0x000412          0x8 data_init
+.dinit            0x000424          0x8
+ .dinit           0x000424          0x8 data_init
 
-.shared.dinit     0x00041a          0x2
- .shared.dinit    0x00041a          0x2 shared_data_init
+.shared.dinit     0x00042c          0x2
+ .shared.dinit    0x00042c          0x2 shared_data_init

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=heyy.X
+PROJECTNAME=pic_audio_sequencer
 
 # Active Configuration
 DEFAULTCONF=default

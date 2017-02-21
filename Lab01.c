@@ -114,13 +114,15 @@ unsigned int state = 0;
 int main(void)
 {
     ANSELB = 0;
-    LATB = 0; 
-    TRISB = 0;
+    LATB = 0xE000; 
+    TRISB = 0xE000;
     
     selectPOT0();
     
     while(1)
     {
+        if(PORTBbits.RB13 == 0)
+        {
         switch(state) {
             case mux1Apot0:
                 mux1A();
@@ -167,7 +169,10 @@ int main(void)
                 break;
         }
         state++;
+        }
     }
+    return 0;
+    
 }
 
 void delay(unsigned int delayVal)
