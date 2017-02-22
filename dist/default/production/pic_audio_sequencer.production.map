@@ -72,11 +72,11 @@ Program Memory  [Origin = 0x200, Length = 0x2adec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xe4           0x156  (342)
-.text                        0x2e4               0x140           0x1e0  (480)
-.dinit                       0x424                 0x8             0xc  (12)
-.shared.dinit                0x42c                 0x2             0x3  (3)
+.text                        0x2e4               0x1dc           0x2ca  (714)
+.dinit                       0x4c0                 0x8             0xc  (12)
+.shared.dinit                0x4c8                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x345  (837) <1%
+                 Total program memory used (bytes):          0x42f  (1071) <1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -122,17 +122,17 @@ External Symbols in Program Memory (by address):
                   0x000238                  __data_init
                   0x0002e0                  __DefaultInterrupt
                   0x0002e4                  _selectPOT0
-                  0x0002f6                  _selectPOT1
-                  0x00030a                  _mux1A
-                  0x000314                  _mux1B
-                  0x00031e                  _mux1C
-                  0x000328                  _mux1D
-                  0x000332                  _mux2A
-                  0x00033c                  _mux2B
-                  0x000346                  _mux2C
-                  0x000350                  _mux2D
-                  0x00035a                  _main
-                  0x0003fa                  _delay
+                  0x000344                  _selectPOT1
+                  0x0003a6                  _mux1A
+                  0x0003b0                  _mux1B
+                  0x0003ba                  _mux1C
+                  0x0003c4                  _mux1D
+                  0x0003ce                  _mux2A
+                  0x0003d8                  _mux2B
+                  0x0003e2                  _mux2C
+                  0x0003ec                  _mux2D
+                  0x0003f6                  _main
+                  0x000496                  _delay
                   0x02affa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -143,18 +143,18 @@ External Symbols in Program Memory (by name):
                   0x000238                  __data_init_extended
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003fa                  _delay
-                  0x00035a                  _main
-                  0x00030a                  _mux1A
-                  0x000314                  _mux1B
-                  0x00031e                  _mux1C
-                  0x000328                  _mux1D
-                  0x000332                  _mux2A
-                  0x00033c                  _mux2B
-                  0x000346                  _mux2C
-                  0x000350                  _mux2D
+                  0x000496                  _delay
+                  0x0003f6                  _main
+                  0x0003a6                  _mux1A
+                  0x0003b0                  _mux1B
+                  0x0003ba                  _mux1C
+                  0x0003c4                  _mux1D
+                  0x0003ce                  _mux2A
+                  0x0003d8                  _mux2B
+                  0x0003e2                  _mux2C
+                  0x0003ec                  _mux2D
                   0x0002e4                  _selectPOT0
-                  0x0002f6                  _selectPOT1
+                  0x000344                  _selectPOT1
 
 Memory Configuration
 
@@ -261,26 +261,26 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x5e4
+.debug_info       0x000000        0x616
  *(.debug_info)
- .debug_info      0x000000        0x5e4 build/default/production/Lab01.o
+ .debug_info      0x000000        0x616 build/default/production/Lab01.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x134
+.debug_abbrev     0x000000        0x143
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x134 build/default/production/Lab01.o
+ .debug_abbrev    0x000000        0x143 build/default/production/Lab01.o
 
-.debug_line       0x000000         0xea
+.debug_line       0x000000        0x100
  *(.debug_line)
- .debug_line      0x000000         0xea build/default/production/Lab01.o
+ .debug_line      0x000000        0x100 build/default/production/Lab01.o
 
 .debug_frame      0x000000        0x164
  *(.debug_frame)
  .debug_frame     0x000000        0x164 build/default/production/Lab01.o
 
-.debug_str        0x000000         0x20
+.debug_str        0x000000         0x29
  *(.debug_str)
- .debug_str       0x000000         0x20 build/default/production/Lab01.o
+ .debug_str       0x000000         0x29 build/default/production/Lab01.o
 
 .debug_loc
  *(.debug_loc)
@@ -1197,23 +1197,23 @@ __c30_signature
  .config_JTAGEN
                   0x02aff0          0x2 build/default/production/Lab01.o
 
-.text             0x0002e4        0x140
- .text            0x0002e4        0x140 build/default/production/Lab01.o
+.text             0x0002e4        0x1dc
+ .text            0x0002e4        0x1dc build/default/production/Lab01.o
                   0x0002e4                  _selectPOT0
-                  0x0002f6                  _selectPOT1
-                  0x00030a                  _mux1A
-                  0x000314                  _mux1B
-                  0x00031e                  _mux1C
-                  0x000328                  _mux1D
-                  0x000332                  _mux2A
-                  0x00033c                  _mux2B
-                  0x000346                  _mux2C
-                  0x000350                  _mux2D
-                  0x00035a                  _main
-                  0x0003fa                  _delay
+                  0x000344                  _selectPOT1
+                  0x0003a6                  _mux1A
+                  0x0003b0                  _mux1B
+                  0x0003ba                  _mux1C
+                  0x0003c4                  _mux1D
+                  0x0003ce                  _mux2A
+                  0x0003d8                  _mux2B
+                  0x0003e2                  _mux2C
+                  0x0003ec                  _mux2D
+                  0x0003f6                  _main
+                  0x000496                  _delay
 
-.dinit            0x000424          0x8
- .dinit           0x000424          0x8 data_init
+.dinit            0x0004c0          0x8
+ .dinit           0x0004c0          0x8 data_init
 
-.shared.dinit     0x00042c          0x2
- .shared.dinit    0x00042c          0x2 shared_data_init
+.shared.dinit     0x0004c8          0x2
+ .shared.dinit    0x0004c8          0x2 shared_data_init

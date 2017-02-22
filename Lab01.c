@@ -41,21 +41,39 @@ void delay(unsigned int delayVal);
 unsigned int pot_selected = 0;
 
 void selectPOT0(void) {
+    pot_selected = 0;
+    long position = 0b00000001000000010;
     LATBbits.LATB7 = 1;                     // pull RST of POT to 1
     LATBbits.LATB9 = 1;                     // set CLK of POT to 1
-    LATBbits.LATB8 = 0b10000000100000000;   // set POT Shift reg to both pot wipers at 50% and select pot0
+    LATBbits.LATB8 = position;              // set POT Shift reg to both pot wipers at 0% and select pot0
     LATBbits.LATB9 = 0;                     // set CLK of POT to 0
     LATBbits.LATB7 = 0;                     // pull RST of POT to 0
-    pot_selected = 0;
+    // loop through 256 positions (0x0202 = 257)
+    for (; position < 0b11111111111111110; position += 0x0202) {// increment position
+        LATBbits.LATB7 = 1;                 // pull RST of POT to 1
+        LATBbits.LATB9 = 1;                 // set CLK of POT to 1
+        LATBbits.LATB8 = position;          // set POT Shift reg to both pot wipers at next position and select pot0
+        LATBbits.LATB9 = 0;                 // set CLK of POT to 0
+        LATBbits.LATB7 = 0;                 // pull RST of POT to 0
+    }
 }
 
 void selectPOT1(void) {
+    pot_selected = 1;
+    long position = 0b11111111111111111;
     LATBbits.LATB7 = 1;                     // pull RST of POT to 1
     LATBbits.LATB9 = 1;                     // set CLK of POT to 1
-    LATBbits.LATB8 = 0b10000000100000001;   // set POT Shift reg to both pot wipers at 50% and select pot1
+    LATBbits.LATB8 = position;              // set POT Shift reg to both pot wipers at 100% and select pot1
     LATBbits.LATB9 = 0;                     // set CLK of POT to 0
     LATBbits.LATB7 = 0;                     // pull RST of POT to 0
-    pot_selected = 1;
+    // loop through 256 positions (0x0202 = 257)
+    for (; position > 0b00000001000000011; position -= 0x0202) {// increment position
+        LATBbits.LATB7 = 1;                 // pull RST of POT to 1
+        LATBbits.LATB9 = 1;                 // set CLK of POT to 1
+        LATBbits.LATB8 = position;          // set POT Shift reg to both pot wipers at next position and select pot1
+        LATBbits.LATB9 = 0;                 // set CLK of POT to 0
+        LATBbits.LATB7 = 0;                 // pull RST of POT to 0
+    }
 }
 
 void mux1A(void) {
