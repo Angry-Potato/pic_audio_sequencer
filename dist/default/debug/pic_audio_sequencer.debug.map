@@ -6,7 +6,7 @@ Tool Name:
 Command:
   -p24EP256GP202 \
   -o \
-  dist/default/production/pic_audio_sequencer.production.elf \
+  dist/default/debug/pic_audio_sequencer.debug.elf \
   -L/opt/microchip/xc16/v1.26/bin/bin/.. \
   -L/opt/microchip/xc16/v1.26/bin/bin/../../lib \
   -L/opt/microchip/xc16/v1.26/bin/bin/../../support/PIC24E/gld \
@@ -15,9 +15,12 @@ Command:
   -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC30F/gld \
   -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33E/gld \
   -L/opt/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/Lab01.o \
+  build/default/debug/Lab01.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_SIMULATOR=1 \
   -Tp24EP256GP202.gld.00 \
   --stack=16 \
   --check-sections \
@@ -30,10 +33,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/pic_audio_sequencer.production.map \
+  -Map=dist/default/debug/pic_audio_sequencer.debug.map \
   --report-mem \
   --memorysummary \
-  dist/default/production/memoryfile.xml \
+  dist/default/debug/memoryfile.xml \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -178,8 +181,11 @@ aivt             0x000000           0xffffffff
 
 Linker script and memory map
 
-LOAD build/default/production/Lab01.o
+LOAD build/default/debug/Lab01.o
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_SIMULATOR = 0x1
 LOAD p24EP256GP202
 LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/libfx-elf.a
                     0x2aff0                  __FICD = 0x2aff0
@@ -263,24 +269,24 @@ __FUID3
 
 .debug_info       0x000000        0x642
  *(.debug_info)
- .debug_info      0x000000        0x642 build/default/production/Lab01.o
+ .debug_info      0x000000        0x642 build/default/debug/Lab01.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x14c
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x14c build/default/production/Lab01.o
+ .debug_abbrev    0x000000        0x14c build/default/debug/Lab01.o
 
 .debug_line       0x000000        0x104
  *(.debug_line)
- .debug_line      0x000000        0x104 build/default/production/Lab01.o
+ .debug_line      0x000000        0x104 build/default/debug/Lab01.o
 
 .debug_frame      0x000000        0x164
  *(.debug_frame)
- .debug_frame     0x000000        0x164 build/default/production/Lab01.o
+ .debug_frame     0x000000        0x164 build/default/debug/Lab01.o
 
 .debug_str        0x000000         0x29
  *(.debug_str)
- .debug_str       0x000000         0x29 build/default/production/Lab01.o
+ .debug_str       0x000000         0x29 build/default/debug/Lab01.o
 
 .debug_loc
  *(.debug_loc)
@@ -292,7 +298,7 @@ __FUID3
                   0x000000         0xae
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0xae build/default/production/Lab01.o
+                  0x000000         0xae build/default/debug/Lab01.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -300,7 +306,7 @@ __FUID3
 .debug_aranges    0x000000         0x18
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/Lab01.o
+                  0x000000         0x18 build/default/debug/Lab01.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1154,7 +1160,7 @@ LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a
 LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/libm-elf.a
 LOAD /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/pic_audio_sequencer.production.elf elf32-pic30)
+OUTPUT(dist/default/debug/pic_audio_sequencer.debug.elf elf32-pic30)
 LOAD FGS
 LOAD default_isr
 LOAD data_init
@@ -1163,42 +1169,42 @@ LOAD shared_data_init
 .debug_pubtypes
                   0x000018         0x4e
  .debug_pubtypes
-                  0x000018         0x4e build/default/production/Lab01.o
+                  0x000018         0x4e build/default/debug/Lab01.o
 
 __c30_signature
                   0x000066         0x12
  __c30_signature
-                  0x000066          0x6 build/default/production/Lab01.o
+                  0x000066          0x6 build/default/debug/Lab01.o
  __c30_signature
                   0x00006c          0x6 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
  __c30_signature
                   0x000072          0x6 /opt/microchip/xc16/v1.26/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extendedep.o)
 
 .nbss               0x1000          0x4
- .nbss              0x1000          0x4 build/default/production/Lab01.o
+ .nbss              0x1000          0x4 build/default/debug/Lab01.o
                     0x1000                  _pot_selected
                     0x1002                  _state
 
 .config_IESO      0x02aff8          0x2
- .config_IESO     0x02aff8          0x2 build/default/production/Lab01.o
+ .config_IESO     0x02aff8          0x2 build/default/debug/Lab01.o
 
 .config_FCKSM     0x02aff6          0x2
- .config_FCKSM    0x02aff6          0x2 build/default/production/Lab01.o
+ .config_FCKSM    0x02aff6          0x2 build/default/debug/Lab01.o
 
 .config_FWDTEN    0x02aff4          0x2
  .config_FWDTEN
-                  0x02aff4          0x2 build/default/production/Lab01.o
+                  0x02aff4          0x2 build/default/debug/Lab01.o
 
 .config_WDTWIN    0x02aff2          0x2
  .config_WDTWIN
-                  0x02aff2          0x2 build/default/production/Lab01.o
+                  0x02aff2          0x2 build/default/debug/Lab01.o
 
 .config_JTAGEN    0x02aff0          0x2
  .config_JTAGEN
-                  0x02aff0          0x2 build/default/production/Lab01.o
+                  0x02aff0          0x2 build/default/debug/Lab01.o
 
 .text             0x0002e4        0x1e4
- .text            0x0002e4        0x1e4 build/default/production/Lab01.o
+ .text            0x0002e4        0x1e4 build/default/debug/Lab01.o
                   0x0002e4                  _selectPOT0
                   0x000358                  _selectPOT1
                   0x0003ce                  _mux1A

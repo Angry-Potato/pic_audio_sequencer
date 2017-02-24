@@ -48,13 +48,16 @@ void selectPOT0(void) {
     LATBbits.LATB8 = position;              // set POT Shift reg to both pot wipers at 0% and select pot0
     LATBbits.LATB9 = 0;                     // set CLK of POT to 0
     LATBbits.LATB7 = 0;                     // pull RST of POT to 0
-    // loop through 256 positions (0x0202 = 257)
+    // loop through 256 positions (0x0202 = 514)
     for (; position < 0b11111111111111110; position += 0x0202) {// increment position
         LATBbits.LATB7 = 1;                 // pull RST of POT to 1
         LATBbits.LATB9 = 1;                 // set CLK of POT to 1
         LATBbits.LATB8 = position;          // set POT Shift reg to both pot wipers at next position and select pot0
         LATBbits.LATB9 = 0;                 // set CLK of POT to 0
         LATBbits.LATB7 = 0;                 // pull RST of POT to 0
+        //delay at this pos
+        unsigned int j;
+        for (j = 0; j < 160; j++);
     }
 }
 
@@ -66,13 +69,16 @@ void selectPOT1(void) {
     LATBbits.LATB8 = position;              // set POT Shift reg to both pot wipers at 100% and select pot1
     LATBbits.LATB9 = 0;                     // set CLK of POT to 0
     LATBbits.LATB7 = 0;                     // pull RST of POT to 0
-    // loop through 256 positions (0x0202 = 257)
+    // loop through 256 positions (0x0202 = 514)
     for (; position > 0b00000001000000011; position -= 0x0202) {// increment position
         LATBbits.LATB7 = 1;                 // pull RST of POT to 1
         LATBbits.LATB9 = 1;                 // set CLK of POT to 1
         LATBbits.LATB8 = position;          // set POT Shift reg to both pot wipers at next position and select pot1
         LATBbits.LATB9 = 0;                 // set CLK of POT to 0
         LATBbits.LATB7 = 0;                 // pull RST of POT to 0
+        //delay at this pos
+        unsigned int j;
+        for (j = 0; j < 160; j++);
     }
 }
 
@@ -145,42 +151,42 @@ int main(void)
             case mux1Apot0:
                 mux1A();
                 selectPOT0();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux2Apot1:
                 mux2A();
                 selectPOT1();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux1Bpot0:
                 mux1B();
                 selectPOT0();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux2Bpot1:
                 mux2B();
                 selectPOT1();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux1Cpot0:
                 mux1C();
                 selectPOT0();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux2Cpot1:
                 mux2C();
                 selectPOT1();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux1Dpot0:
                 mux1D();
                 selectPOT0();
-                delay(2048);
+                // delay(2048);
                 break;
             case mux2Dpot1:
                 mux2D();
                 selectPOT1();
-                delay(2048);
+                // delay(2048);
                 break;
             default:
                 state = mux1Apot0-1;
